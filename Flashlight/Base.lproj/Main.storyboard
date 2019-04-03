@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A277" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,56 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flashlight" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="0LH-1g-n5a">
+                                <rect key="frame" x="164" y="412" width="49" height="31"/>
+                                <connections>
+                                    <action selector="onSwitchChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="gHA-h8-TuM"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="coe-wQ-9Dy">
+                                <rect key="frame" x="0.0" y="-8" width="375" height="300"/>
+                                <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="NxK-Ui-0Pn"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="Rubber Duck" translatesAutoresizingMaskIntoConstraints="NO" id="sQj-EA-Nhy">
+                                <rect key="frame" x="37" y="42" width="300" height="200"/>
+                            </imageView>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="coe-wQ-9Dy" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="6qu-TA-Bbn"/>
+                            <constraint firstItem="0LH-1g-n5a" firstAttribute="centerX" secondItem="coe-wQ-9Dy" secondAttribute="centerX" id="Tx5-gh-fVh"/>
+                            <constraint firstItem="sQj-EA-Nhy" firstAttribute="centerX" secondItem="coe-wQ-9Dy" secondAttribute="centerX" id="dMT-4Y-drC"/>
+                            <constraint firstItem="sQj-EA-Nhy" firstAttribute="centerY" secondItem="coe-wQ-9Dy" secondAttribute="centerY" id="fRq-ud-hOc"/>
+                            <constraint firstItem="0LH-1g-n5a" firstAttribute="top" secondItem="coe-wQ-9Dy" secondAttribute="bottom" constant="79" id="j2c-ji-tIy"/>
+                            <constraint firstItem="coe-wQ-9Dy" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="nck-da-mPK"/>
+                            <constraint firstItem="sQj-EA-Nhy" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="uq6-Iy-u4n"/>
+                            <constraint firstItem="sQj-EA-Nhy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="37" id="uyd-MR-74t"/>
+                            <constraint firstItem="coe-wQ-9Dy" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="zUU-v7-hkl"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="flashlightView" destination="coe-wQ-9Dy" id="s8N-3j-wW3"/>
+                        <outlet property="imageView" destination="sQj-EA-Nhy" id="AVN-5U-SD3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-79.200000000000003" y="125.4872563718141"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Rubber Duck" width="229" height="209"/>
+    </resources>
 </document>
